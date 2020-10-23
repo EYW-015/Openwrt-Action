@@ -12,6 +12,10 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
+sed -i '112a set network.$1.gateway='192.168.50.1'' package/base-files/files/bin/config_generate
+sed -i '112a set network.$1.dns='223.5.5.5'' package/base-files/files/bin/config_generate
+sed -i '113s/^/\t\t\t\t/g' package/base-files/files/bin/config_generate
+sed -i '114s/^/\t\t\t\t/g' package/base-files/files/bin/config_generate
 #替换添加老竭力Argon主题===========
 pushd package/lean
 rm -rf luci-theme-argon
