@@ -12,6 +12,8 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.60.1/g' package/base-files/files/bin/config_generate
+#降低qBit版本===========
+sed -i 's/4.3.1/4.3.0.1/g' /package/lean/qBittorrent/Makefile
 #替换添加老竭力Argon主题===========
 pushd package/lean
 rm -rf luci-theme-argon
