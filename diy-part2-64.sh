@@ -17,7 +17,7 @@ sed -i '112a set network.$1.dns='223.5.5.5'' package/base-files/files/bin/config
 sed -i '113s/^/\t\t\t\t/g' package/base-files/files/bin/config_generate
 sed -i '114s/^/\t\t\t\t/g' package/base-files/files/bin/config_generate
 #降低qBit版本===========
-sed -i 's/4.3.1/4.3.0.1/g' /package/lean/qBittorrent/Makefile
+sed -i 's/4.3.1/4.3.0.1/g' package/lean/qBittorrent/Makefile
 #替换添加老竭力Argon主题===========
 pushd package/lean
 rm -rf luci-theme-argon
