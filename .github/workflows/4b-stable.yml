@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt 4b Stable
+name: Build Op 4b Stable
 
 on:
   repository_dispatch:
