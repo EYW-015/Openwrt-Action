@@ -10,8 +10,15 @@
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-# Modify default IP
+#修改默认IP===========
 #sed -i 's/192.168.1.1/192.168.50.5/g' package/base-files/files/bin/config_generate
+#修改默认网关&DNS===========
+#sed -i "/set network.\$1.netmask='\$netm'/a \\\t\t\t\tset network.\$1.gateway='192.168.50.1'\n\t\t\t\tset network.\$1.dns='192.168.50.1'" package/base-files/files/bin/config_generate
+#修改主机名称密码===========
+#sed -i 's/OpenWrt/M73/g' package/base-files/files/bin/config_generate
+#降低qBit版本4.2.5===========
+sed -i '4c PKG_VERSION:=4.2.5' package/lean/qBittorrent/Makefile
+sed -i '9c PKG_HASH:=1dac52d6fe4b0c44dba04fcfc41f519c57a69cb30580255edca95c87053a4324' package/lean/qBittorrent/Makefile
 #替换添加老竭力Argon主题===========
 pushd package/lean
 rm -rf luci-theme-argon
