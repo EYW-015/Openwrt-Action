@@ -13,7 +13,7 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.60.1/g' package/base-files/files/bin/config_generate
 #修改主机名称
-sed -i 's/OpenWrt/RPI-4/g' package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/RPI4/g' package/base-files/files/bin/config_generate
 #选择qBit版本===========
 #sed -i '4c PKG_VERSION:=4.3.1' package/lean/qBittorrent/Makefile
 #sed -i '9c PKG_HASH:=4428ed710cfbcc48e75c4cdb014b803ea3f67311f55f4cba0d148987986bd6c8' package/lean/qBittorrent/Makefile
