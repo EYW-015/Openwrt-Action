@@ -12,16 +12,21 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.60.1/g' package/base-files/files/bin/config_generate
-#修改主机名称
+
+# Change Hostname
 sed -i 's/OpenWrt/RPI4/g' package/base-files/files/bin/config_generate
-#选择qBit版本===========
-#sed -i '4c PKG_VERSION:=4.3.1' package/lean/qBittorrent/Makefile
-#sed -i '9c PKG_HASH:=4428ed710cfbcc48e75c4cdb014b803ea3f67311f55f4cba0d148987986bd6c8' package/lean/qBittorrent/Makefile
-#sed -i '4c PKG_VERSION:=4.3.0.1' package/lean/qBittorrent/Makefile
-#sed -i '9c PKG_HASH:=af17daa57d750522357393aca32a4dd57f5b0f271f2c49b3ce6908baee5ed93b' package/lean/qBittorrent/Makefile
-sed -i '4c PKG_VERSION:=4.2.5' package/lean/qBittorrent/Makefile
-sed -i '9c PKG_HASH:=1dac52d6fe4b0c44dba04fcfc41f519c57a69cb30580255edca95c87053a4324' package/lean/qBittorrent/Makefile
-#替换添加老竭力Argon主题===========
+
+# Version of qBittorrent
+#sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.1.9' package/lean/qBittorrent/Makefile
+#sed -i '/PKG_HASH:=/c PKG_HASH:=620127f73f88ed3f2b2e4195cbc641f7c27f967d3b045e45f7916c0995fd61fe' package/lean/qBittorrent/Makefile
+
+#sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.2.5' package/lean/qBittorrent/Makefile
+#sed -i '/PKG_HASH:=/c PKG_HASH:=1dac52d6fe4b0c44dba04fcfc41f519c57a69cb30580255edca95c87053a4324' package/lean/qBittorrent/Makefile
+
+#sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.4.1' package/lean/qBittorrent/Makefile
+#sed -i '/PKG_HASH:=/c PKG_HASH:=8f615aa06f77286881d40b5f769f648221128b46f0bffc1f2fa101068f99ebe8' package/lean/qBittorrent/Makefile
+
+# Theme of Argon
 pushd package/lean
 rm -rf luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon
