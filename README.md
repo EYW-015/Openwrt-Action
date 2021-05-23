@@ -1,3 +1,21 @@
+# 本项目修改内容
+
+- 添加 [OpenClash](https://github.com/vernesong/OpenClash) 插件
+
+- X64
+  - 默认IP `192.168.50.5`
+  - LAN口默认网关与DNS `192.168.50.1`
+  - 初始密码 `password`
+  - 默认设备名称 `M73`
+- RPI4 
+  - 默认IP `192.168.50.5`
+  - 初始密码 `password`
+  - 默认设备名称 `RPI4`
+
+**!!请注意自行修改LAN口设置!!**
+
+下载地址 [Release](https://github.com/EYW-015/Openwrt-Action/releases)
+
 # Actions-OpenWrt
 
 [![LICENSE](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&label=LICENSE)](https://github.com/P3TERX/Actions-OpenWrt/blob/master/LICENSE)
