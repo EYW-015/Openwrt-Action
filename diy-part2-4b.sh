@@ -26,6 +26,12 @@ sed -i 's/OpenWrt/RPI4/g' package/base-files/files/bin/config_generate
 #sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.4.1' package/lean/qBittorrent/Makefile
 #sed -i '/PKG_HASH:=/c PKG_HASH:=8f615aa06f77286881d40b5f769f648221128b46f0bffc1f2fa101068f99ebe8' package/lean/qBittorrent/Makefile
 
+sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.5' package/lean/qBittorrent/Makefile
+sed -i '/PKG_HASH:=/c PKG_HASH:=83b6165f9f969406a2daabc7f49bbdc79aa6840c1e707cbade97eeb15a4907f3' package/lean/qBittorrent/Makefile
+
+#sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.6' package/lean/qBittorrent/Makefile
+#sed -i '/PKG_HASH:=/c PKG_HASH:=dc673e20e69077dcebd836dade38e15c19289a8cda5837bf1f19206f16bf4751' package/lean/qBittorrent/Makefile
+
 # Theme of Argon
 pushd package/lean
 rm -rf luci-theme-argon
