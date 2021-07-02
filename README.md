@@ -1,7 +1,17 @@
-# 本项目内容
+# 内容
 
-- 添加 [OpenClash](https://github.com/vernesong/OpenClash) 插件
-
+- 老竭力 [argon主题](https://github.com/jerrykuku/luci-theme-argon) & [设置插件](https://github.com/jerrykuku/luci-app-argon-config)
+- qBittorrent & Transmission
+- Docker
+- IPsec Server
+- [OpenClash](https://github.com/vernesong/OpenClash)
+- SSRP
+- Samba
+- Rclone
+- 云音乐
+- 微力同步
+- Zerotier
+---
 - X86_64
   - 默认IP `192.168.50.5`
   - LAN口默认网关与DNS `192.168.50.1`
