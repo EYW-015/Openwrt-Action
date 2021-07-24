@@ -35,9 +35,12 @@ sed -i "/set network.\$1.netmask='\$netm'/a \\\t\t\t\tset network.\$1.gateway='1
 #sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.6' package/lean/qBittorrent/Makefile
 #sed -i '/PKG_HASH:=/c PKG_HASH:=dc673e20e69077dcebd836dade38e15c19289a8cda5837bf1f19206f16bf4751' package/lean/qBittorrent/Makefile
 
-# Theme of Argon
+#Custom package
 rm -rf package/lean/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-argon-config
 rm -rf package/lean/luci-app-unblockmusic
 git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
+
+#Config OpenClash
+sed -i 's/ipset add localnetwork 192.168.0.0\/16/ipset add localnetwork 192.168.50.0\/24/g' feeds/openclash/luci-app-openclash/root/etc/init.d/openclash
