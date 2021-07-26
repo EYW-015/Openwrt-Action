@@ -36,8 +36,8 @@ sed -i 's/192.168.1.1/192.168.60.1/g' package/base-files/files/bin/config_genera
 rm -rf package/lean/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-argon-config
-rm -rf package/lean/luci-app-unblockmusic
-git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
+#rm -rf package/lean/luci-app-unblockmusic
+#git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 
 #Config OpenClash
 sed -i 's/ipset add localnetwork 192.168.0.0\/16/ipset add localnetwork 192.168.60.0\/24/g' feeds/openclash/luci-app-openclash/root/etc/init.d/openclash
