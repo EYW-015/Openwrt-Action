@@ -38,8 +38,8 @@ sed -i '/PKG_HASH:=/c PKG_HASH:=d17c0bd852aaf8b75d61026ee213ad9147c37d8e3a14a313
 rm -rf package/lean/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-argon-config
-rm -rf package/lean/luci-app-unblockmusic
-git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
+#rm -rf package/lean/luci-app-unblockmusic
+#git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
 
 #Config OpenClash
 sed -i 's/ipset add localnetwork 192.168.0.0\/16/ipset add localnetwork 192.168.50.0\/24/g' feeds/openclash/luci-app-openclash/root/etc/init.d/openclash
