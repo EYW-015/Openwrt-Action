@@ -26,13 +26,9 @@ sed -i 's/192.168.1.1/192.168.60.1/g' package/base-files/files/bin/config_genera
 #sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.2.5' package/lean/qBittorrent/Makefile
 #sed -i '/PKG_HASH:=/c PKG_HASH:=1dac52d6fe4b0c44dba04fcfc41f519c57a69cb30580255edca95c87053a4324' package/lean/qBittorrent/Makefile
 
-sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.7_v1.2.14' package/lean/qBittorrent-static/Makefile
-sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.7' package/lean/qBittorrent/Makefile
-sed -i '/PKG_HASH:=/c PKG_HASH:=d17c0bd852aaf8b75d61026ee213ad9147c37d8e3a14a3137b735732061bd1b1' package/lean/qBittorrent/Makefile
-
-#sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.8_v1.2.14' package/lean/qBittorrent-static/Makefile
-#sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.8' package/lean/qBittorrent/Makefile
-#sed -i '/PKG_HASH:=/c PKG_HASH:=cc11f797dd146e6aac8feee8feffb1e429d61551f48b577d32b2239ec5e72ccb' package/lean/qBittorrent/Makefile
+sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.9_v1.2.14' package/lean/qBittorrent-static/Makefile
+sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.9' package/lean/qBittorrent/Makefile
+sed -i '/PKG_HASH:=/c PKG_HASH:=6ff801cfe2beeb9fca24d4565e863e06f46bb8fc56c0eb833293ff31b3bfe83a' package/lean/qBittorrent/Makefile
 
 #Custom package
 rm -rf package/lean/luci-theme-argon
