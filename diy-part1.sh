@@ -17,6 +17,6 @@
 #sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 #添加openclash===========
 #sed -i '$a src-git openclash https://github.com/vernesong/OpenClash' feeds.conf.default
-#git rm target/linux/ipq807x/patches-5.10/900-arm64-dts-add-OpenWrt-DTS-files.patch
-#git add target/linux/ipq807x/patches-5.10/900-arm64-dts-add-OpenWrt-DTS-files.patch
-#git revert -n edbd8d2e9839357f3a4f0a06174d243f362b1544
+
+#restore ax6
+git rm target/linux/ipq807x/patches-5.10/900-arm64-dts-add-OpenWrt-DTS-files.patch ; git revert -n edbd8d2e9839357f3a4f0a06174d243f362b1544 ; git add target/linux/ipq807x/patches-5.10/900-arm64-dts-add-OpenWrt-DTS-files.patch ; git revert -n edbd8d2e9839357f3a4f0a06174d243f362b1544
