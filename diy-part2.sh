@@ -11,9 +11,9 @@
 #
 
 # Modify default IP
+sed -i 's/192.168.1.1/192.168.60.1/g' package/base-files/files/bin/config_generate
+#sed -i '1c root::0:0:99999:7:::' package/base-files/files/etc/shadow
 
-sed -i 's/10.10.10.1/192.168.60.1/g' package/base-files/files/bin/config_generate
-sed -i '1c root::0:0:99999:7:::' package/base-files/files/etc/shadow
 # Change Hostname
 #sed -i 's/OpenWrt/OP-EYW/g' package/base-files/files/bin/config_generate
 
@@ -27,16 +27,16 @@ sed -i '1c root::0:0:99999:7:::' package/base-files/files/etc/shadow
 #sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.2.5' package/lean/qBittorrent/Makefile
 #sed -i '/PKG_HASH:=/c PKG_HASH:=1dac52d6fe4b0c44dba04fcfc41f519c57a69cb30580255edca95c87053a4324' package/lean/qBittorrent/Makefile
 
-sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.9_v1.2.14' package/lean/qBittorrent-static/Makefile
-sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.9' package/lean/qBittorrent/Makefile
-sed -i '/PKG_HASH:=/c PKG_HASH:=6ff801cfe2beeb9fca24d4565e863e06f46bb8fc56c0eb833293ff31b3bfe83a' package/lean/qBittorrent/Makefile
+#sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.9_v1.2.14' package/lean/qBittorrent-static/Makefile
+#sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.9' package/lean/qBittorrent/Makefile
+#sed -i '/PKG_HASH:=/c PKG_HASH:=6ff801cfe2beeb9fca24d4565e863e06f46bb8fc56c0eb833293ff31b3bfe83a' package/lean/qBittorrent/Makefile
 
 #Custom package
-rm -rf package/lean/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-argon-config
-#rm -rf package/lean/luci-app-unblockmusic
-#git clone https://github.com/immortalwrt/luci-app-unblockneteasemusic.git package/luci-app-unblockneteasemusic
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/luci/themes/luci-theme-argon-mod
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
 #Config OpenClash
 sed -i 's/ipset add localnetwork 192.168.0.0\/16/ipset add localnetwork 192.168.60.0\/24/g' feeds/openclash/luci-app-openclash/root/etc/init.d/openclash
+sed -i 's/192.168.0.0\/16/192.168.60.0\/24/g' feeds/openclash/luci-app-openclash/root/etc/openclash/custom/openclash_custom_localnetwork_ipv4.list
