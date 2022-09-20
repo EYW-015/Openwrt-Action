@@ -1,26 +1,25 @@
 # 内容
 
-- 老竭力 [argon主题](https://github.com/jerrykuku/luci-theme-argon) & [设置插件](https://github.com/jerrykuku/luci-app-argon-config)
-- qBittorrent & Transmission
-- Docker
-- IPsec Server
-- [OpenClash](https://github.com/vernesong/OpenClash)
-- SSRP
-- Samba
-- Rclone
-- 云音乐
-- 微力同步
-- Zerotier
----
-- 后台
-  - 默认IP `192.168.60.1`
-    - 或 `192.168.50.5` 默认网关与DNS `192.168.50.1`
-    - **!!请注意自行修改LAN口设置!!**
-  - 初始密码 `password`
+## 个人使用平台
+- Redmi_AX6(主用机)
+- x86_64(改成NAS了)
+
+## 使用源
+- [coolsnowwolf/lede](https://github.com/coolsnowwolf/lede)
+- [Boos4721/openwrt](https://github.com/Boos4721/openwrt)
+- [yaya131/lede-for-XiaoMi](https://github.com/yaya131/lede-for-XaioMi)
+
+## 后台
+- 默认IP `192.168.60.1`
+- 初始密码 `password`
+- WiFi密码 `1234567890`
+
+## 插件
+openclash,ssrplus,ddns
 
 下载地址 [Release](https://github.com/EYW-015/Openwrt-Action/releases)  
-注意看下载的设备型号
 
+---
 # Actions-OpenWrt
 
 [![LICENSE](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&label=LICENSE)](https://github.com/P3TERX/Actions-OpenWrt/blob/master/LICENSE)
