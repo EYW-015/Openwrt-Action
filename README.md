@@ -6,18 +6,22 @@
 
 ## 使用源
 - [coolsnowwolf/lede](https://github.com/coolsnowwolf/lede)
-- [Boos4721/openwrt](https://github.com/Boos4721/openwrt)
 - [yaya131/lede-for-XiaoMi](https://github.com/yaya131/lede-for-XaioMi)
+- [robimarko/openwrt](https://github.com/robimarko/openwrt/tree/ipq807x-5.15-pr)
 
 ## 后台
 - 默认IP `192.168.60.1`
 - 初始密码 `password`
-- WiFi密码 `1234567890`
+- WiFi密码 `12345678`
 
 ## 插件
 openclash,ssrplus,ddns
 
 下载地址 [Release](https://github.com/EYW-015/Openwrt-Action/releases)  
+
+---
+
+**=== 以下是原项目介绍内容 ===**
 
 ---
 # Actions-OpenWrt

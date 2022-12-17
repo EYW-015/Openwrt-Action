@@ -67,6 +67,10 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
+
+    - name: Restore Xiaomi devices
+      continue-on-error: true
+      run: |
         git revert edbd8d2e9839357f3a4f0a06174d243f362b1544 -n ; sed -i '/<<</d'  target/linux/ipq807x/patches-5.10/900-arm64-dts-add-OpenWrt-DTS-files.patch ; sed -i '/===/,/>>>/d'  target/linux/ipq807x/patches-5.10/900-arm64-dts-add-OpenWrt-DTS-files.patch
         git add target/linux/ipq807x/patches-5.10/900-arm64-dts-add-OpenWrt-DTS-files.patch
         git add target/linux/ipq807x/files-5.10/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
