@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt AX6 yaya
+name: AX6 robimarko
 
 on:
   repository_dispatch:
@@ -17,15 +17,15 @@ on:
       ssh:
         description: 'SSH connection to Actions'
         required: false
-        default: 'false'
+        default: 'true'
 
 env:
-  REPO_URL: https://github.com/yaya131/lede-for-XaioMi
-  REPO_BRANCH: master
-  FEEDS_CONF: feeds.conf.default-yaya
-  CONFIG_FILE: ax6.config
-  DIY_P1_SH: diy-part1-yaya.sh
-  DIY_P2_SH: diy-part2-yaya.sh
+  REPO_URL: https://github.com/robimarko/openwrt
+  REPO_BRANCH: ipq807x-5.15-pr
+  FEEDS_CONF: feeds.conf.default
+  CONFIG_FILE: ax6-robimarko.config
+  DIY_P1_SH: diy-part1.sh
+  DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -47,7 +47,7 @@ jobs:
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq install $(curl -fsSL https://raw.githubusercontent.com/EYW-015/Openwrt-Action/main/depend-yaya)
+        sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
@@ -81,6 +81,9 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
+        sed -i 's/OpenWrt/AX6/g' package/base-files/files/bin/config_generate
+        sed -i 's/OpenWrt/Redmi-AX6/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+        sed -i 's/none/psk2\n\t\t\tset wireless.default_radio\$\{devidx\}.key\=12345678/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0
@@ -103,7 +106,7 @@ jobs:
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
-        make -j$(nproc) || make -j1 || make -j1 V=s
+        make -j$(nproc) || make -j2 || make -j2 V=s
         echo "::set-output name=status::success"
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
@@ -158,10 +161,18 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")-AX6-yaya"
+        echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
         touch release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
+        echo "Redmi-AX6-robimarko Openwrt 固件配置：" >> release.txt
+        echo "IP:192.168.60.1" >> release.txt
+        echo "WEB登陆账户：root" >> release.txt
+        echo "密码：password" >> release.txt
+        echo "WiFi名称：Redmi-AX6" >> release.txt
+        echo "WiFi密码：12345678" >> release.txt
+        echo "固件源码：https://github.com/robimarko/openwrt" >> release.txt
+        echo "${{ env.useVersionInfo }}" >> release.txt
         echo "::set-output name=status::success"
 
     - name: Upload firmware to release
@@ -171,6 +182,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
+        release_name: AX6-robimarko-${{steps.tag.outputs.value}}
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
 
@@ -184,7 +196,7 @@ jobs:
       uses: dev-drprasad/delete-older-releases@v0.1.0
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        keep_latest: 8
+        keep_latest: 10
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
