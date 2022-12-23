@@ -28,8 +28,6 @@ env:
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: false
-  UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
@@ -73,14 +71,7 @@ jobs:
       run: |
         mv restore-xiaomi-lean.sh openwrt/restore-xiaomi-lean.sh
         cd openwrt
-        chmod +x restore-xiaomi-lean.sh
-        #./restore-xiaomi-lean.sh
-        git revert edbd8d2e9839357f3a4f0a06174d243f362b1544 -n ; sed -i '/<<</d'  target/linux/ipq807x/patches-5.10/900-arm64-dts-add-OpenWrt-DTS-files.patch ; sed -i '/===/,/>>>/d'  target/linux/ipq807x/patches-5.10/900-arm64-dts-add-OpenWrt-DTS-files.patch
-        git add target/linux/ipq807x/patches-5.10/900-arm64-dts-add-OpenWrt-DTS-files.patch
-        git add target/linux/ipq807x/files-5.10/arch/arm64/boot/dts/qcom/ipq8071-ax6.dts
-        git add target/linux/ipq807x/files-5.10/arch/arm64/boot/dts/qcom/ipq8071-ax3600.dts
-        git add target/linux/ipq807x/files-5.10/arch/arm64/boot/dts/qcom/ipq8071-ax3600.dtsi
-
+        chmod +x restore-xiaomi-lean.sh && ./restore-xiaomi-lean.sh
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
