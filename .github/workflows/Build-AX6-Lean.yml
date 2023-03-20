@@ -67,11 +67,19 @@ jobs:
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
     - name: Restore Xiaomi devices
-      continue-on-error: true
       run: |
-        mv restore-xiaomi-lean.sh openwrt/restore-xiaomi-lean.sh
+        cp restore-xiaomi-lean openwrt/restore-xiaomi-lean
         cd openwrt
-        chmod +x restore-xiaomi-lean.sh && ./restore-xiaomi-lean.sh
+        cat restore-xiaomi-lean >> target/linux/ipq807x/image/generic.mk
+
+    - name: DIY firmware
+      run: |
+        cd openwrt
+        sed -i 's/5.10/5.15/g' target/linux/ipq807x/Makefile
+        sed -i 's/OpenWrt/AX6/g' package/base-files/files/bin/config_generate
+        sed -i 's/OpenWrt/Redmi-AX6/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+        sed -i 's/none/psk2\n\t\t\tset wireless.default_radio\$\{devidx\}.key\=12345678/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+        sed -i 's/-dhcp/-pppoe/g' package/base-files/files/lib/functions/uci-defaults.sh
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -86,9 +94,6 @@ jobs:
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
-        sed -i 's/OpenWrt/AX6/g' package/base-files/files/bin/config_generate
-        sed -i 's/OpenWrt/Redmi-AX6/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-        sed -i 's/none/psk2\n\t\t\tset wireless.default_radio\$\{devidx\}.key\=12345678/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
     - name: SSH connection to Actions
       uses: P3TERX/ssh2actions@v1.0.0

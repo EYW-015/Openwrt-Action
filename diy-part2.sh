@@ -28,7 +28,7 @@ sed -i '1c root::0:0:99999:7:::' package/base-files/files/etc/shadow
 #sed -i "/set network.\$1.netmask='\$netm'/a \\\t\t\t\tset network.\$1.gateway='192.168.50.1'\n\t\t\t\tset network.\$1.dns='192.168.50.1'" package/base-files/files/bin/config_generate
 
 # Config WAN to PPPoE
-sed -i 's/-dhcp/-pppoe/g' package/base-files/files/lib/functions/uci-defaults.sh
+#sed -i 's/-dhcp/-pppoe/g' package/base-files/files/lib/functions/uci-defaults.sh
 # Config default PPPoE account
 #sed -i "s/'username'/'<youraccount>'/g" package/base-files/files/bin/config_generate
 #sed -i "s/'password'/'<yourpass>'/g" package/base-files/files/bin/config_generate
@@ -60,14 +60,6 @@ sed -i 's/192.168.0.0\/16/192.168.60.0\/24/g' package/luci-app-openclash/root/et
 #git clone https://github.com/riverscn/openwrt-iptvhelper.git package/openwrt-iptvhelper
 
 # Version of qBittorren
-#sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.9_v1.2.14' feeds/packages/net/qBittorrent-static/Makefile
-#sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.3.9' feeds/packages/net/qBittorrent/Makefile
-#sed -i '/PKG_HASH:=/c PKG_HASH:=6ff801cfe2beeb9fca24d4565e863e06f46bb8fc56c0eb833293ff31b3bfe83a' feeds/packages/net/qBittorrent/Makefile
-
 #sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.4.5_v2.0.8' feeds/packages/net/qBittorrent-static/Makefile
 #sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.4.5' feeds/packages/net/qBittorrent/Makefile
 #sed -i '/PKG_HASH:=/c PKG_HASH:=70c2128b44fe4df4dfc8afc765a304d70cf1b042b5214bcc855d8b3bbc9ccf36' feeds/packages/net/qBittorrent/Makefile
-
-#sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.5.0_v2.0.8' feeds/packages/net/qBittorrent-static/Makefile
-#sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.5.0' feeds/packages/net/qBittorrent/Makefile
-#sed -i '/PKG_HASH:=/c PKG_HASH:=9c44acc3ee28a3c99067e82f57d79e001a54ef8bdf41c63a97dd04c6633ee9dc' feeds/packages/net/qBittorrent/Makefile
