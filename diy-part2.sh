@@ -63,3 +63,4 @@ sed -i 's/192.168.0.0\/16/192.168.60.0\/24/g' package/luci-app-openclash/root/et
 #sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.4.5_v2.0.8' feeds/packages/net/qBittorrent-static/Makefile
 #sed -i '/PKG_VERSION:=/c PKG_VERSION:=4.4.5' feeds/packages/net/qBittorrent/Makefile
 #sed -i '/PKG_HASH:=/c PKG_HASH:=70c2128b44fe4df4dfc8afc765a304d70cf1b042b5214bcc855d8b3bbc9ccf36' feeds/packages/net/qBittorrent/Makefile
+
